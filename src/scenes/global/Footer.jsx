@@ -60,7 +60,7 @@ function Footer() {
             Contact Us
           </Typography>
           <Typography mb="30px">
-            50 north Whatever Blvd, Washington, DC 10501
+            ZoneStreet 123,<br/> 12345 Berlin, Germany
           </Typography>
           <Typography mb="30px" sx={{ wordWrap: "break-word" }}>
             Email: contact@commercezone.com

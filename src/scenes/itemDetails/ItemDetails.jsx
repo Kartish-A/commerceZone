@@ -6,12 +6,12 @@ import Tabs from "@mui/material/Tabs";
 import Item from "../../components/Item";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import { Box, Button, Icon, IconButton, Typography, useMediaQuery } from "@mui/material";
+import { Box, Button, IconButton, Typography, useMediaQuery } from "@mui/material";
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 
 import { shades } from "../../theme";
-import { addToCart } from "../../state";
+import { addToCart, addToFav } from "../../state";
 
 const ItemDetails = () => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
@@ -49,8 +49,10 @@ const ItemDetails = () => {
     setItems(itemsJson.data);
   };
 
+  const randomItems = items.sort(() => Math.random() - 0.5).slice(0, 5);
+
+  // This function handles the back navigation logic.
   const handleBack = () => {
-    // This function handles the back navigation logic.
     window.history.back();
   };
 
@@ -61,7 +63,7 @@ const ItemDetails = () => {
 
   return (
     <Box width="80%" m="80px auto">
-      <Box width= "100%" display="flex" justifyContent="flex-end" alignItems='center' >
+      <Box width="100%" display="flex" justifyContent="flex-end" alignItems='center' >
         <IconButton onClick={handleBack}  >
           <KeyboardBackspaceIcon fontSize="large" />
         </IconButton>
@@ -126,10 +128,14 @@ const ItemDetails = () => {
             </Button>
           </Box>
           <Box>
-            <Box m="20px 0 5px 0" display="flex">
-              <FavoriteBorderOutlinedIcon />
-              <Typography sx={{ ml: "5px" }}>ADD TO WISHLIST</Typography>
+
+            <Box m="20px 0 5px 0" display="flex" alignItems='center'>
+              <Button onClick={() => dispatch(addToFav({ item: { ...item, count } }))} >
+                <FavoriteBorderOutlinedIcon />
+              </Button>
+              <Typography sx={{ ml: "5px" }}>ADD TO FAVORITES</Typography>
             </Box>
+
             <Typography>CATEGORIES: {item?.attributes?.category}</Typography>
           </Box>
         </Box>
@@ -161,7 +167,7 @@ const ItemDetails = () => {
           columnGap="1.33%"
           justifyContent="space-between"
         >
-          {items?.slice(0, 4).map((item, i) => (
+          {randomItems?.map((item, i) => (
             <Item key={`${item.name}-${i}`} item={item} />
           ))}
         </Box>

@@ -12,7 +12,7 @@ const Subscribe = () => {
       </IconButton>
       <Typography variant="h3">Subscribe To Our Newsletter</Typography>
       <Typography>
-        and receive $20 coupon for your first order when you checkout
+      Upon checkout, you'll get a 15 Euro coupon for use on your initial order.
       </Typography>
       <Box
         p="2px 4px"
