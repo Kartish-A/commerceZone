@@ -28,26 +28,36 @@ const ItemDetails = () => {
   };
 
   async function getItem() {
-    const item = await fetch(
-      `https://commerce-zone.vercel.app/api/items/${itemId}?populate=image`,
-      {
-        method: "GET",
-      }
-    );
-    const itemJson = await item.json();
-    setItem(itemJson.data);
+    try {
+      const item = await fetch(
+        `https://commerce-zone.vercel.app/api/items/${itemId}?populate=image`,
+        {
+          method: "GET",
+        }
+      );
+      const itemJson = await item.json();
+      setItem(itemJson.data);
+    } catch (error) {
+      console.error("Error fetching item:", error);
+    }
   }
+  
 
   async function getItems() {
-    const items = await fetch(
-      `https://commerce-zone.vercel.app/api/items?populate=image`,
-      {
-        method: "GET",
-      }
-    );
-    const itemsJson = await items.json();
-    setItems(itemsJson.data);
-  };
+    try {
+      const items = await fetch(
+        `https://commerce-zone.vercel.app/api/items?populate=image`,
+        {
+          method: "GET",
+        }
+      );
+      const itemsJson = await items.json();
+      setItems(itemsJson.data);
+    } catch (error) {
+      console.error("Error fetching items:", error);
+    }
+  }
+  
 
   const randomItems = items.sort(() => Math.random() - 0.5).slice(0, 5);
 
