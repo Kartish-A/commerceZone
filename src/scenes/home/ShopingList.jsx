@@ -19,26 +19,34 @@ const ShoppingList = () => {
     setValue(newValue);
   };
 
+
   async function getItems() {
-    const items = await fetch(
-      "https://commerce-zone.vercel.app/api/items?populate=image",
-      { method: "GET" }
-    );
-    const itemsJson = await items.json();
-    dispatch(setItems(itemsJson.data));
-    console.log("Items : " , items);
+    try {
+      const items = await fetch(
+        `https://commerce-zone.vercel.app/api/items?populate=image`,
+        {
+          method: "GET",
+        }
+      );
+      const itemsJson = await items.json();
+      dispatch(setItems(itemsJson.data));
+      console.log("Items : ", items);
+
+    } catch (error) {
+      console.error("Error fetching items:", error);
+    }
   }
 
   useEffect(() => {
     getItems();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-const WomensSuitsItems = items.filter(
-  (item) => item.attributes.category === "WomensSuits"
-);
-const WomensSkirtsItems = items.filter(
-  (item) => item.attributes.category === "WomensSkirts"
-);
+  const WomensSuitsItems = items.filter(
+    (item) => item.attributes.category === "WomensSuits"
+  );
+  const WomensSkirtsItems = items.filter(
+    (item) => item.attributes.category === "WomensSkirts"
+  );
   const topRatedItems = items.filter(
     (item) => item.attributes.category === "topRated"
   );
@@ -56,7 +64,7 @@ const WomensSkirtsItems = items.filter(
   return (
     <Box width="80%" margin="80px auto">
       <Typography variant="h3" textAlign="center">
-      Curated <b>Must-Haves</b>
+        Curated <b>Must-Haves</b>
       </Typography>
       <Tabs
         textColor="primary"
@@ -79,7 +87,7 @@ const WomensSkirtsItems = items.filter(
         <Tab label="SHIRTS" value="Shirts" />
         <Tab label="NEW ARRIVALS" value="newArrivals" />
         <Tab label="TOP RATED" value="topRated" />
-        
+
 
 
 
@@ -104,20 +112,20 @@ const WomensSkirtsItems = items.filter(
           topRatedItems.map((item) => (
             <Item item={item} key={`${item.name}-${item.id}`} />
           ))}
-          {value === "Shirts" &&
+        {value === "Shirts" &&
           MensShirtsItems.map((item) => (
             <Item item={item} key={`${item.name}-${item.id}`} />
           ))}
-          {value === "Men's Suits" && 
-          MensSuitsItems.map((item)=> (
+        {value === "Men's Suits" &&
+          MensSuitsItems.map((item) => (
             <Item item={item} key={`${item.name}-${item.id}`} />
           ))}
-          {value === "WomensSuits" && 
-          WomensSuitsItems.map((item)=> (
+        {value === "WomensSuits" &&
+          WomensSuitsItems.map((item) => (
             <Item item={item} key={`${item.name}-${item.id}`} />
           ))}
-          {value === "WomensSkirts" && 
-          WomensSkirtsItems.map((item)=> (
+        {value === "WomensSkirts" &&
+          WomensSkirtsItems.map((item) => (
             <Item item={item} key={`${item.name}-${item.id}`} />
           ))}
       </Box>
