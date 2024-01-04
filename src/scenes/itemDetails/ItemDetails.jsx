@@ -30,7 +30,7 @@ const ItemDetails = () => {
   async function getItem() {
     try {
       const item = await fetch(
-        `https://commerce-zone.vercel.app/api/items/${itemId}?populate=image`,
+        `https://commerce-zone-ihttjto4t-abdoulfatahs-projects.vercel.app/api/items/${itemId}?populate=image`,
         {
           method: "GET",
         }
@@ -46,7 +46,7 @@ const ItemDetails = () => {
   async function getItems() {
     try {
       const items = await fetch(
-        `https://commerce-zone.vercel.app/api/items?populate=image`,
+        `https://commerce-zone-ihttjto4t-abdoulfatahs-projects.vercel.app/api/items?populate=image`,
         {
           method: "GET",
         }
@@ -89,7 +89,7 @@ const ItemDetails = () => {
             alt={item?.name}
             width="100%"
             height="100%"
-            src={`https://commerce-zone.vercel.app${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
+            src={`https://commerce-zone-ihttjto4t-abdoulfatahs-projects.vercel.app${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
             style={{ objectFit: "contain" }}
           />
         </Box>

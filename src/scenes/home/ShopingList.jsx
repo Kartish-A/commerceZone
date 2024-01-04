@@ -23,7 +23,7 @@ const ShoppingList = () => {
   async function getItems() {
     try {
       const items = await fetch(
-        `https://commerce-zone.vercel.app/api/items?populate=image`,
+        `https://commerce-zone-ihttjto4t-abdoulfatahs-projects.vercel.app/api/items?populate=image`,
         {
           method: "GET",
         }

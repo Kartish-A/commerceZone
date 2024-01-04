@@ -61,7 +61,7 @@ const Favorites = () => {
                     alt={item?.name}
                     width='123px'
                     height='164px'
-                    src={`https://commerce-zone.vercel.app${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
+                    src={`https://commerce-zone-ihttjto4t-abdoulfatahs-projects.vercel.app${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
                   />
                 </Box>
 
