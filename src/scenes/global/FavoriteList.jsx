@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "@emotion/styled";
 import CloseIcon from "@mui/icons-material/Close";
@@ -14,7 +13,6 @@ const FlexBox = styled(Box)`
 `;
 
 const Favorites = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const fav = useSelector((state)=> state.fav.fav)
   const isFavoriteOpen = useSelector((state) => state.fav.isFavoriteOpen);
