@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "@emotion/styled";
 import CloseIcon from "@mui/icons-material/Close";
-import { Box, Button, Divider, IconButton, Typography, useMediaQuery } from "@mui/material";
+import { Box, IconButton, Typography, useMediaQuery } from "@mui/material";
 
 import { shades } from "../../theme";
 import { setIsMenuOpen } from "../../state";
