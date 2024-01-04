@@ -29,7 +29,7 @@ const ItemDetails = () => {
 
   async function getItem() {
     const item = await fetch(
-      `http://localhost:1337/api/items/${itemId}?populate=image`,
+      `https://commerce-zone.vercel.app/api/items/${itemId}?populate=image`,
       {
         method: "GET",
       }
@@ -40,7 +40,7 @@ const ItemDetails = () => {
 
   async function getItems() {
     const items = await fetch(
-      `http://localhost:1337/api/items?populate=image`,
+      `https://commerce-zone.vercel.app/api/items?populate=image`,
       {
         method: "GET",
       }
