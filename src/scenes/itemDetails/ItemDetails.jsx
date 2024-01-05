@@ -39,6 +39,7 @@ const ItemDetails = () => {
       setItem(itemJson.data);
     } catch (error) {
       console.error("Error fetching item:", error);
+      console.log("one item: ", item);
     }
   }
 
@@ -53,6 +54,8 @@ const ItemDetails = () => {
       );
       const itemsJson = await items.json();
       setItems(itemsJson.data);
+      console.log("Items : ", items);
+
     } catch (error) {
       console.error("Error fetching items:", error);
     }
