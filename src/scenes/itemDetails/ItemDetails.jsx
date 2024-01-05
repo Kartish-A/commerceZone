@@ -37,6 +37,7 @@ const ItemDetails = () => {
       );
       const itemJson = await item.json();
       setItem(itemJson.data);
+      console.log("one item: ", item);
     } catch (error) {
       console.error("Error fetching item:", error);
       console.log("one item: ", item);
